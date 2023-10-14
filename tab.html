@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Music Player</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="players">
+    <div id="left-player" class="player">
+      <span id="left-current-track">No Track Selected</span>
+      <audio id="audioElement1" controls></audio>
+      <button id="left-play" class="control-button play-button">Play</button>
+    </div>
+    <div id="right-player" class="player">
+      <span id="right-current-track">No Track Selected</span>
+      <audio id="audioElement2" controls></audio>
+      <button id="right-play" class="control-button play-button">Play</button>
+    </div>
+  </div>
+  <div id="controls">
+    <button id="selectFolder" class="control-button">Select Folder</button>
+    <button id="continuousPlayBtn" class="control-button">Continuous Play: ON</button>
+  </div>
+  <div id="playlist">
+    <!-- Playlist items go here -->
+  </div>
+  <script src="tab.js"></script>
+
+  <div id="contextMenu" style="position: absolute; display:none;">
+    <button id="toLeft">Move to Left Player</button>
+    <button id="toRight">Move to Right Player</button>
+  </div>
+
+<!-- Equalizer Knobs at the bottom -->
+<div class="control-knobs">
+  <div class="knob" id="volumeKnob1"></div>
+  <div class="knob" id="lowKnob1"></div>
+  <div class="knob" id="midKnob1"></div>
+  <div class="knob" id="highKnob1"></div>
+  <div class="knob" id="volumeKnob2"></div>
+  <div class="knob" id="lowKnob2"></div>
+  <div class="knob" id="midKnob2"></div>
+  <div class="knob" id="highKnob2"></div>
+</div>
+<div class="transparent-bar">
+  <!-- Empty, just for decoration -->
+</div>
+</body>
+</html>

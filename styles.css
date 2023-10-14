@@ -1,0 +1,245 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#players {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.player {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#controls, .player {
+  margin-top: 20px;
+}
+
+.control-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 8px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s;
+}
+
+.control-button:hover {
+  background-color: #45a049;
+}
+
+.play-button {
+  background-color: #4CAF50;
+}
+
+.play-button:hover {
+  background-color: #45a049;
+}
+
+#playlist {
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.track-item {
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  color: #eee;
+  user-drag: element; /* Make it draggable */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.track-item:hover{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.drag-over {
+  background-color: rgba(0, 128, 128, 0.3); /* You can change this color */
+}
+
+  /* Style the equalizer knobs */
+  .control-knobs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+  }
+  .knob {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #555;
+    position: relative;
+  }
+  .knob:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+  }
+
+
+/* Custom timeline style */
+audio::-webkit-media-controls-timeline {
+  background: linear-gradient(to right, #2E8B57, #ADFF2F);
+  border-radius: 5px;
+  height: 5px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(46, 139, 87, 0.9); /* Radioactive dark green with 90% opacity */
+}
+
+audio::-webkit-media-controls-timeline {
+  background: linear-gradient(to right, #2E8B57, #ADFF2F);
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background: linear-gradient(to right, #2E8B57, #ADFF2F);
+}
+
+audio::-webkit-media-controls-play-button {
+  filter: hue-rotate(90deg); /* Example to change the color, adjust as needed */
+}
+
+
+  /* Song name above the player */
+  .song-name {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f1f1f1;
+    z-index: 9998;
+  }
+  /* Control knobs at the bottom */
+  .control-knobs {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9997;
+    background-color: rgba(18, 18, 18, 0.8);  /* 10% transparent */
+  }
+
+  /* Semi-transparent bar */
+  .transparent-bar {
+    position: fixed;
+    bottom: 0;  /* Height of the knobs bar */
+    width: 100%;
+    height: 80px;  /* Height of the transparent bar (computed control knobs bar + 30px aprox) */
+    background-color: rgba(18, 18, 18, 0.7);  /* 30% transparent */
+    z-index: 9996;  /* Behind the knobs bar */
+  }
+
+
+    /* Make the audio players stick to the top */
+  #leftPlayer, #rightPlayer {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+  }
+  
+  /* Style the <audio> element */
+  audio {
+    width: 40%;
+    min-width: 400px;
+  }
+
+#left-current-track, #right-current-track {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+
+/* Dark Mode Styles */
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+.player {
+  background-color: #1e1e1e;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+#playlist {
+  background-color: #111;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#contextMenu {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.control-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.control-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.track-item::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: transparent;
+}
+
+.track-item.playing::before {
+  background: #00ff00;  /* Green color for the playing track */
+  margin-top: 4px;
+}
